@@ -1,0 +1,362 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start Tran An Phu local website",
+			"type": "shell",
+			"command": "pnpm dev",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start Tran An Phu local website (npm)",
+			"type": "shell",
+			"command": "npm run dev",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start Tran An Phu local website (npm.cmd)",
+			"type": "shell",
+			"command": "npm.cmd run dev",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install Tran An Phu dependencies",
+			"type": "shell",
+			"command": "npm.cmd install",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify installed dependencies",
+			"type": "shell",
+			"command": "if (Test-Path 'node_modules\\vinext\\dist\\cli.js') { Write-Output 'VINEXT_PRESENT' } else { Write-Output 'VINEXT_MISSING' }; npm.cmd ls vinext --depth=0",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Tran An Phu local website",
+			"type": "shell",
+			"command": "npm.cmd run dev",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check Tran An Phu local server",
+			"type": "shell",
+			"command": "Get-NetTCPConnection -State Listen | Where-Object { $_.OwningProcess -in (Get-Process node -ErrorAction SilentlyContinue).Id } | Select-Object LocalAddress,LocalPort,OwningProcess; Get-Process node -ErrorAction SilentlyContinue | Select-Object Id,Path",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read document skill instructions",
+			"type": "shell",
+			"command": "Get-Content -Raw 'C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents\\SKILL.md'",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect document skill tools",
+			"type": "shell",
+			"command": "Get-ChildItem 'C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents' -Recurse | Select-Object FullName",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "List document skill files",
+			"type": "shell",
+			"command": "Get-ChildItem 'C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents' -Recurse -File | ForEach-Object { $_.FullName.Substring('C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents'.Length + 1) }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "List document skill files 2",
+			"type": "shell",
+			"command": "Get-ChildItem 'C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents' -Recurse -File | ForEach-Object { $_.FullName.Substring('C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents'.Length + 1) }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read document skill part 1",
+			"type": "shell",
+			"command": "$p='C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents\\SKILL.md'; $lines=Get-Content $p; Write-Output ('LINES='+$lines.Count); $lines | Select-Object -First 120",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read document skill part 2",
+			"type": "shell",
+			"command": "$p='C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents\\SKILL.md'; $lines=Get-Content $p; $lines | Select-Object -Skip 120 -First 120",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read document skill part 3",
+			"type": "shell",
+			"command": "$p='C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents\\SKILL.md'; $lines=Get-Content $p; $lines | Select-Object -Skip 240 -First 120",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read document skill part 4",
+			"type": "shell",
+			"command": "$p='C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents\\SKILL.md'; $lines=Get-Content $p; $lines | Select-Object -Skip 360 -First 120",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read document skill part 5",
+			"type": "shell",
+			"command": "$p='C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents\\SKILL.md'; $lines=Get-Content $p; $lines | Select-Object -Skip 480 -First 120",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read document review workflow",
+			"type": "shell",
+			"command": "$p='C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents\\tasks\\read_review.md'; $lines=Get-Content $p; Write-Output ('LINES='+$lines.Count); $lines",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read document review workflow 2",
+			"type": "shell",
+			"command": "$p='C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents\\tasks\\read_review.md'; $lines=Get-Content $p; $lines | Select-Object -Skip 30",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Render resume for review",
+			"type": "shell",
+			"command": "$out='D:\\Website Trần An Phú\\Tran-An-Phu-Portfolio-Full-Source\\_resume_render'; New-Item -ItemType Directory -Force $out | Out-Null; python 'C:\\Users\\chien\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1022.11436\\skills\\documents\\render_docx.py' 'D:\\Website Trần An Phú\\Tran_An_Phu_Resume.docx' --output_dir $out --emit_pdf",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check document review tools",
+			"type": "shell",
+			"command": "Get-Command soffice,libreoffice,pandoc,python,py -ErrorAction SilentlyContinue | Select-Object Name,Source",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Extract resume text",
+			"type": "shell",
+			"command": "Add-Type -AssemblyName System.IO.Compression.FileSystem; $path='D:\\Website Trần An Phú\\Tran_An_Phu_Resume.docx'; $zip=[IO.Compression.ZipFile]::OpenRead($path); try { $entry=$zip.GetEntry('word/document.xml'); $sr=[IO.StreamReader]::new($entry.Open()); try { $xml=[xml]$sr.ReadToEnd() } finally { $sr.Dispose() }; $ns=[Xml.XmlNamespaceManager]::new($xml.NameTable); $ns.AddNamespace('w','http://schemas.openxmlformats.org/wordprocessingml/2006/main'); $i=0; foreach($p in $xml.SelectNodes('//w:p',$ns)){ $i++; $parts=@(); foreach($n in $p.SelectNodes('.//w:t',$ns)){ $parts += $n.InnerText }; $text=$parts -join ''; if($text.Trim()){ Write-Output ('['+$i+'] '+$text) } } } finally { $zip.Dispose() }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "List website source files",
+			"type": "shell",
+			"command": "rg --files app components public | Sort-Object",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "List website source files 2",
+			"type": "shell",
+			"command": "Get-ChildItem app,components,public -Recurse -File | ForEach-Object { $_.FullName.Substring((Get-Location).Path.Length + 1) } | Sort-Object",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read portfolio data",
+			"type": "shell",
+			"command": "Get-Content -Raw 'app\\portfolio-data.ts'",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Measure portfolio data",
+			"type": "shell",
+			"command": "(Get-Content 'app\\portfolio-data.ts').Count",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Summarize current portfolio entries",
+			"type": "shell",
+			"command": "$text=Get-Content -Raw 'app\\portfolio-data.ts'; [regex]::Matches($text,\"\\{id:'([^']+)'(?:,group:'([^']+)')?,title:'([^']+)'\") | ForEach-Object { 'id='+$_.Groups[1].Value+' | group='+$_.Groups[2].Value+' | title='+$_.Groups[3].Value }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Summarize current portfolio entries 2",
+			"type": "shell",
+			"command": "$text=Get-Content -Raw 'app\\portfolio-data.ts'; $pat=\"\\{id:[']([^']+)['](?:,group:[']([^']+)['])?,title:[']([^']+)[']\"; [regex]::Matches($text,$pat) | ForEach-Object { 'id='+$_.Groups[1].Value+' | group='+$_.Groups[2].Value+' | title='+$_.Groups[3].Value }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Summarize current portfolio entries 3",
+			"type": "shell",
+			"command": "foreach($line in (Get-Content 'app\\portfolio-data.ts')){ if($line -match 'id:'){ Write-Output $line.Substring(0,[Math]::Min(220,$line.Length)) } }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read bio and research data",
+			"type": "shell",
+			"command": "$raw=Get-Content -Raw 'app\\portfolio-data.ts'; foreach($id in 'bio','research'){ $s=$raw.IndexOf(\"{id:'$id'\"); $e=$raw.IndexOf('},{id:',$s+1); if($e -lt 0){$e=$raw.Length}; Write-Output ('---'+$id+'---'); Write-Output $raw.Substring($s,$e-$s) }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read bio and research data 2",
+			"type": "shell",
+			"command": "$raw=Get-Content -Raw 'app\\portfolio-data.ts'; foreach($id in 'bio','research'){ $needle='{id:'+[char]39+$id+[char]39; $s=$raw.IndexOf($needle); $e=$raw.IndexOf('},{id:',$s+1); if($e -lt 0){$e=$raw.Length}; Write-Output ('---'+$id+'---'); Write-Output $raw.Substring($s,$e-$s) }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read bio and research data 3",
+			"type": "shell",
+			"command": "$raw=Get-Content -Raw 'app\\portfolio-data.ts'; foreach($id in 'bio','research'){ $needle='{id:'+[char]39+$id+[char]39; $s=$raw.IndexOf($needle); $e=$raw.IndexOf('{id:',$s+1); if($e -lt 0){$e=$raw.Length}; Write-Output ('---'+$id+'---'); Write-Output $raw.Substring($s,$e-$s) }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect existing detail sections",
+			"type": "shell",
+			"command": "$raw=Get-Content -Raw 'app\\portfolio-data.ts'; foreach($id in 'nutrition','safety','research','tekite','sentem','scratch','daklak','green','folk','shtp','iot','edumath'){ $needle='{id:'+[char]39+$id+[char]39; $s=$raw.IndexOf($needle); $e=$raw.IndexOf('{id:',$s+1); if($e -lt 0){$e=$raw.Length}; $obj=$raw.Substring($s,$e-$s); $a=$obj.IndexOf('sections:'); $b=$obj.IndexOf(',photos:'); if($b -lt 0){$b=$obj.Length}; Write-Output ('---'+$id+'---'); Write-Output $obj.Substring(0, [Math]::Min($obj.Length,220)); if($a -ge 0){Write-Output $obj.Substring($a,$b-$a)} }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect research detail sections",
+			"type": "shell",
+			"command": "$raw=Get-Content -Raw 'app\\portfolio-data.ts'; $id='research'; $needle='{id:'+[char]39+$id+[char]39; $s=$raw.IndexOf($needle); $e=$raw.IndexOf('{id:',$s+1); $obj=$raw.Substring($s,$e-$s); $a=$obj.IndexOf('sections:'); $b=$obj.IndexOf(',photos:'); Write-Output $obj.Substring($a,$b-$a)",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect portfolio rendering",
+			"type": "shell",
+			"command": "$lines=Get-Content 'app\\page.tsx'; Write-Output ('LINES='+$lines.Count); $lines | Select-Object -First 220",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect research detail sections part 1",
+			"type": "shell",
+			"command": "$raw=Get-Content -Raw 'app\\portfolio-data.ts'; $s=$raw.IndexOf('{id:'+[char]39+'research'+[char]39); $e=$raw.IndexOf('{id:',$s+1); $obj=$raw.Substring($s,$e-$s); $a=$obj.IndexOf('sections:'); $b=$obj.IndexOf(',photos:'); $sec=$obj.Substring($a,$b-$a); Write-Output ('LEN='+$sec.Length); Write-Output $sec.Substring(0,[Math]::Min(1600,$sec.Length))",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect portfolio data footer",
+			"type": "shell",
+			"command": "Get-Content 'app\\portfolio-data.ts' | Select-Object -Last 5",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect Tekite and community detail sections",
+			"type": "shell",
+			"command": "$raw=Get-Content -Raw 'app\\portfolio-data.ts'; foreach($id in 'tekite','sentem','scratch','daklak','green','folk'){ $needle='{id:'+[char]39+$id+[char]39; $s=$raw.IndexOf($needle); $e=$raw.IndexOf('{id:',$s+1); if($e -lt 0){$e=$raw.Length}; $obj=$raw.Substring($s,$e-$s); $a=$obj.IndexOf('sections:'); $b=$obj.IndexOf(',photos:'); if($b -lt 0){$b=$obj.Length}; Write-Output ('---'+$id+'---'); Write-Output ($obj.Substring(0,[Math]::Min($obj.Length,240))); Write-Output ($obj.Substring($a,[Math]::Min(900,$b-$a))) }",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read nutrition entry exact",
+			"type": "shell",
+			"command": "$raw=Get-Content -Raw 'app\\portfolio-data.ts'; $s=$raw.IndexOf('{id:'+[char]39+'nutrition'+[char]39); $e=$raw.IndexOf('{id:',$s+1); Write-Output $raw.Substring($s,$e-$s)",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Read safety entry exact",
+			"type": "shell",
+			"command": "$raw=Get-Content -Raw 'app\\portfolio-data.ts'; $s=$raw.IndexOf('{id:'+[char]39+'safety'+[char]39); $e=$raw.IndexOf('{id:',$s+1); Write-Output $raw.Substring($s,$e-$s)",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Build Tran An Phu website after resume updates",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Review website changes",
+			"type": "shell",
+			"command": "git status --short; git diff --stat",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Locate updated portfolio sections",
+			"type": "shell",
+			"command": "Select-String -Path 'app\\portfolio-data.ts' -Pattern 'resumeAdditions','entryOverrides','memory-challenge','aijam-grand-prix','Academic record','research:' | Select-Object LineNumber,Line",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start website dev server",
+			"type": "shell",
+			"command": "npm run dev",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start website dev server (cmd)",
+			"type": "shell",
+			"command": "npm.cmd run dev",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect package scripts",
+			"type": "shell",
+			"command": "node -e \"console.log(JSON.stringify(require('./package.json'), null, 2))\"",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect package scripts 2",
+			"type": "shell",
+			"command": "Get-Content package.json",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect framework runner",
+			"type": "shell",
+			"command": "Get-Content scripts/run-framework.mjs",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Production build after redesign",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Final production build",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start website",
+			"type": "shell",
+			"command": "npm run dev",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start website (npm.cmd)",
+			"type": "shell",
+			"command": "npm.cmd run dev",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
