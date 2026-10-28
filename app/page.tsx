@@ -7,7 +7,6 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
-  Check,
   ExternalLink,
   Menu,
   Plus,
@@ -60,14 +59,18 @@ const impactEntries = [
 const recognitionEntries = [
   entry("aijam-grand-prix"),
   entry("icpc-gold"),
-  entry("sviifaward"),
   entry("ideaward"),
+  entry("sviifaward"),
+  entry("seacso"),
   entry("singapore-math-global-finals"),
   entry("singapore-math-challenge"),
-  entry("seacso"),
 ];
 const experienceEntries = [entry("shtp"), entry("iot")];
-const resumeHref = "/documents/Tran_An_Phu_Resume.docx.pdf";
+const pdfViewHref = (href: string) =>
+  href.toLowerCase().includes(".pdf") && !href.includes("#")
+    ? `${href}#page=1&zoom=page-fit`
+    : href;
+const resumeHref = pdfViewHref("/documents/Tran_An_Phu_Resume.docx.pdf");
 
 type OpenTarget = HTMLElement | null;
 
@@ -172,7 +175,8 @@ export default function Page() {
           <a
             className="header-cv"
             href={resumeHref}
-            download
+            target="_blank"
+            rel="noreferrer"
             onClick={closeMenu}
           >
             CV <ArrowUpRight size={14} aria-hidden="true" />
@@ -443,7 +447,12 @@ export default function Page() {
                 >
                   Read full biography <Plus size={16} aria-hidden="true" />
                 </button>
-                <a className="text-link" href={resumeHref} download>
+                <a
+                  className="text-link"
+                  href={resumeHref}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Download CV <ArrowUpRight size={15} aria-hidden="true" />
                 </a>
               </div>
@@ -713,10 +722,7 @@ export default function Page() {
                 <br />
                 <em>the way.</em>
               </h2>
-              <p>
-                Selected academic and team awards, with supporting materials
-                where available.
-              </p>
+              <p>Selected academic and team awards listed in my resume.</p>
             </div>
           </div>
           <div className="recognition-list">
@@ -733,18 +739,9 @@ export default function Page() {
                   <strong>{item.title}</strong>
                   <small>{item.category}</small>
                 </span>
-                <span className="recognition-evidence">
-                  {item.missing ? (
-                    <>
-                      <span className="pending-dot" /> Evidence pending
-                    </>
-                  ) : (
-                    <>
-                      <Check size={15} aria-hidden="true" /> Supporting material
-                    </>
-                  )}
+                <span className="recognition-detail">
+                  View detail <ArrowUpRight size={15} aria-hidden="true" />
                 </span>
-                <ArrowUpRight size={17} aria-hidden="true" />
               </button>
             ))}
           </div>
@@ -817,7 +814,7 @@ export default function Page() {
               <a className="contact-email" href="mailto:anphusg2009@gmail.com">
                 anphusg2009@gmail.com
               </a>
-              <a href={resumeHref} download>
+              <a href={resumeHref} target="_blank" rel="noreferrer">
                 Download my CV <ArrowUpRight size={16} aria-hidden="true" />
               </a>
               <a
@@ -963,13 +960,15 @@ export default function Page() {
                   <h3>Explore the evidence</h3>
                   {selected.links.map((link) => {
                     const external = link.href.startsWith("http");
+                    const pdf = link.href.toLowerCase().includes(".pdf");
+                    const openInNewTab = external || pdf;
                     return (
                       <a
                         className="button button-outline"
                         key={link.href}
-                        href={link.href}
-                        target={external ? "_blank" : undefined}
-                        rel={external ? "noreferrer" : undefined}
+                        href={pdfViewHref(link.href)}
+                        target={openInNewTab ? "_blank" : undefined}
+                        rel={openInNewTab ? "noreferrer" : undefined}
                       >
                         {link.label}{" "}
                         <ArrowUpRight size={16} aria-hidden="true" />
